@@ -10,8 +10,10 @@ pipeline {
 		choice(name: 'VM', choices: ['kubemaster', 'kubenode01'], description: 'Pick something')
 	}
 	stages { 
-		stage('Checkout') {
+	    stage('Checkout') {
+		  steps {
 		   git branch: 'master', credentialsId: 'GITHUB', url: 'git@github.com:Muralit20/Vagrant-VMS.git'
+		  }
 	    }
         stage('VM') {
             steps {
