@@ -22,13 +22,8 @@ pipeline {
 	    }
         stage('VM') {
             steps {
-		agent {
-			node {
-				label 'WIN'
-				customWorkspace 'C:\\Users\\Lenovo\\vagrant-workspace\\github'
-			}
-		}
                 script {
+		 powershell "cd C:\\Users\\Lenovo\\vagrant-workspace\\github\\certified-kubernetes-administrator-course",
 		 powershell ".\\pshell.ps1 ${params.VAGRANT} ${params.VM}"
                 } 
             }
