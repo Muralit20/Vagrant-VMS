@@ -23,8 +23,9 @@ pipeline {
         stage('VM') {
             steps {
                 script {
-		 powershell "cd C:\\Users\\Lenovo\\vagrant-workspace\\github\\certified-kubernetes-administrator-course",
-		 powershell ".\\pshell.ps1 ${params.VAGRANT} ${params.VM}"
+		 powershell """
+			cd C:\\Users\\Lenovo\\vagrant-workspace\\github\\certified-kubernetes-administrator-course
+			.\\pshell.ps1 ${params.VAGRANT} ${params.VM}"""
                 } 
             }
         }
