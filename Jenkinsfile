@@ -12,7 +12,7 @@ pipeline {
 	stages { 
 	    stage('Checkout') {
 		  steps {
-		   git branch: 'master', credentialsId: 'GITHUB-KEY', url: 'https://github.com/Muralit20/Vagrant-VMS.git'
+		   git branch: 'master', credentialsId: 'GITHUB-KEY', url: 'git@github.com:Muralit20/Vagrant-VMS.git'
 		  }
 	    }
 	    stage('src') {
