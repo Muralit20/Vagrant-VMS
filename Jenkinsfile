@@ -2,7 +2,7 @@ pipeline {
 	agent {
 		node {
 			label 'WIN'
-			customWorkspace 'C:\\Users\\Lenovo\\vagrant-workspace\\github\\certified-kubernetes-administrator-course'
+			customWorkspace 'C:\\Jenkins-slave-node'
 		}
 	}
 	parameters {	
@@ -15,10 +15,21 @@ pipeline {
 		   git branch: 'master', credentialsId: 'GITHUB', url: 'git@github.com:Muralit20/Vagrant-VMS.git'
 		  }
 	    }
+	    stage('src') {
+		  steps {
+		   powershell "cp .\\pshell.ps1 C:\\Users\\Lenovo\\vagrant-workspace\\github\\certified-kubernetes-administrator-course"
+		  }
+	    }
         stage('VM') {
             steps {
+		agent {
+			node {
+				label 'WIN'
+				customWorkspace 'C:\\Users\\Lenovo\\vagrant-workspace\\github'
+			}
+		}
                 script {
-				powershell ".\\pshell.ps1 ${params.VAGRANT} ${params.VM}"
+		 powershell ".\\pshell.ps1 ${params.VAGRANT} ${params.VM}"
                 } 
             }
         }
