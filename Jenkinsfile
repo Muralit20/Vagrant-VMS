@@ -2,7 +2,7 @@ pipeline {
 	agent {
 		node {
 			label 'WIN'
-			customWorkspace 'C:\\Users\\Lenovo\\vagrant-workspace\dev'
+			customWorkspace 'C:\\Users\\Lenovo\\vagrant-workspace\\dev'
 		}
 	}
 	parameters {	
