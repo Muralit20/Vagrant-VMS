@@ -14,7 +14,7 @@ pipeline {
 	    }
 	    stage('src') {
 			steps {
-			sh "cp -rf /var/lib/jenkins/workspace/VM-UP/* /mnt/c/Users/Lenovo/vagrant-workspace/dev"
+			sh "cp -rf /var/lib/jenkins/workspace/Vagrant-VM/* /mnt/c/Users/Lenovo/vagrant-workspace/Vagrant-VMS"
 			}
 		}
         stage('VM') {
@@ -27,6 +27,7 @@ pipeline {
             steps {
                 script {
 					powershell """
+					cd ..\\Vagrant-VMS
 					.\\pshell.ps1 ${params.VAGRANT} ${params.VM}"""
                 } 
             }
