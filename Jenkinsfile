@@ -6,30 +6,17 @@ pipeline {
 	}
 	stages { 
 	    stage('Checkout') {
+		  agent { 
+			    label {
+			        label 'WIN' 
+			        customWorkspace 'C:\\Users\\Lenovo\\vagrant-workspace\\dev'
+			    }    
+			}
 		  steps {
 		   git branch: 'master',
 		       credentialsId: 'GitHub-Key',
 		       url: 'https://github.com/Muralit20/Vagrant-VMS.git'
 		  }
 	    }
-	    stage('src') {
-			steps {
-			sh "cp -rf /var/lib/jenkins/workspace/Vagrant-VM/* /mnt/c/Users/Lenovo/vagrant-workspace/dev"
-			}
-		}
-        stage('VM') {
-			agent { 
-			    label {
-			        label 'WIN' 
-			        customWorkspace 'C:\\Users\\Lenovo\\vagrant-workspace\\dev'
-			    }    
-			}
-            steps {
-                script {
-					powershell """
-					.\\pshell.ps1 ${params.VAGRANT} ${params.VM}"""
-                } 
-            }
-        }
     }
 }
