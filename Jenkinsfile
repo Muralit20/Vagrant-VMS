@@ -13,9 +13,7 @@ pipeline {
 			    }    
 			}
 		  steps {
-		   git branch: 'master',
-		       credentialsId: 'GITHUB-S',
-		       url: 'https://github.com/Muralit20/Vagrant-VMS.git'
+		   powershell "git clone https://github.com/Muralit20/Vagrant-VMS.git"
 		  }
 	    }
     }
