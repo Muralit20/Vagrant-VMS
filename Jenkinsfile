@@ -14,7 +14,7 @@ pipeline {
 			}
 		  steps {
 		   git branch: 'master',
-		       credentialsId: 'GitHub-Key',
+		       credentialsId: 'GITHUB-S',
 		       url: 'https://github.com/Muralit20/Vagrant-VMS.git'
 		  }
 	    }
